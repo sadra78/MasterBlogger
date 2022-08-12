@@ -40,5 +40,15 @@ namespace MB.Domain.ArticleAgg
             IsDeleted = false;
             CreationDate = DateTime.Now;
         }
+
+        public void Activate()
+        {
+            IsDeleted = false;
+        }
+
+        public void Remove()
+        {
+            IsDeleted = true;
+        }
     }
 }
