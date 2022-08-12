@@ -4,7 +4,7 @@ using MB.Domain.ArticleAgg;
 
 namespace MB.Application
 {
-    public class ArticleApplication:IArticleApplication
+    public class ArticleApplication : IArticleApplication
     {
         private readonly IArticleRepository _articleRepository;
 
@@ -23,6 +23,27 @@ namespace MB.Application
             var article = new Article(command.Title, command.ShortDescription, command.Image, command.Content,
                 command.ArticleCategoryId);
             _articleRepository.CreateAndSave(article);
+        }
+
+        public void Edit(EditArticle command)
+        {
+            var article = _articleRepository.Get(command.Id);
+            article.Edit(command.Title, command.ShortDescription, command.Image, command.Content, command.ArticleCategoryId);
+            _articleRepository.Save();
+        }
+
+        public EditArticle Get(long id)
+        {
+            var article = _articleRepository.Get(id);
+            return new EditArticle
+            {
+                Id = article.Id,
+                Title = article.Title,
+                ShortDescription = article.ShortDescription,
+                Image = article.Image,
+                Content = article.Content,
+                ArticleCategoryId = article.ArticleCategoryId,
+            };
         }
     }
 }
