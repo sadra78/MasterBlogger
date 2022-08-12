@@ -1068,7 +1068,15 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "MB.Application.Contracts/1.0.0": {
+        "runtime": {
+          "MB.Application.Contracts.dll": {}
+        }
+      },
       "MB.Domain/1.0.0": {
+        "dependencies": {
+          "MB.Application.Contracts": "1.0.0"
+        },
         "runtime": {
           "MB.Domain.dll": {}
         }
@@ -1759,6 +1767,11 @@
       "sha512": "sha512-VShQJhOxgD/5M2Z1IWm1vMaSqlbjo1zdFf8H7Ahte6bTvSUhUko/gDpAVVhGgGgTDeue4QyNg1fu1Zz2GKSEuQ==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "MB.Application.Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "MB.Domain/1.0.0": {
       "type": "project",

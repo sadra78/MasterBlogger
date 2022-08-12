@@ -14,7 +14,11 @@ namespace MB.Domain.ArticleCategoryAgg
         public DateTime CreationDate { get; private set; }
         public ICollection<Article> Articles { get; set; }
 
-        public ArticleCategory(string title,IArticleCategoryValidatorService validatorService)
+        protected ArticleCategory()
+        {
+        }
+
+        public ArticleCategory(string title, IArticleCategoryValidatorService validatorService)
         {
             GuardAgainstEmptyTitle(title);
             validatorService.CheckThatThisRecordAlreadyExists(title);
