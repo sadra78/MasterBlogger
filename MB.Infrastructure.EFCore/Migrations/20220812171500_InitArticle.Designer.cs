@@ -56,7 +56,7 @@ namespace MB.Infrastructure.EFCore.Migrations
                     b.ToTable("Articles");
                 });
 
-            modelBuilder.Entity("MB.Domain.ArticleCategoryAgg.ArticleCategory", b =>
+            modelBuilder.Entity("MB.Domain.ArticleCategoryAgg.ArticleCategoryId", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -80,16 +80,16 @@ namespace MB.Infrastructure.EFCore.Migrations
 
             modelBuilder.Entity("MB.Domain.ArticleAgg.Article", b =>
                 {
-                    b.HasOne("MB.Domain.ArticleCategoryAgg.ArticleCategory", "ArticleCategory")
+                    b.HasOne("MB.Domain.ArticleCategoryAgg.ArticleCategoryId", "ArticleCategoryId")
                         .WithMany("Articles")
                         .HasForeignKey("ArticleCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ArticleCategory");
+                    b.Navigation("ArticleCategoryId");
                 });
 
-            modelBuilder.Entity("MB.Domain.ArticleCategoryAgg.ArticleCategory", b =>
+            modelBuilder.Entity("MB.Domain.ArticleCategoryAgg.ArticleCategoryId", b =>
                 {
                     b.Navigation("Articles");
                 });
